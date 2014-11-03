@@ -3,13 +3,22 @@ module Main where
 import  Data.List      
 import  System.Random   
 
+{-Verifica se não possue os numeros 9,8,0 na lista-}
+oneToSeven [] = True
+oneToSeven (a:x)
+	|a == '0' = False
+	|a == '8' = False
+	|a == '9' = False
+	|otherwise = oneToSeven x
 
-{-Verifica se tem duas cores/numeros repetidas-}
-noRepeat attempt = attempt == nub attempt
+{-Verifica se tem duas cores/numeros repetidas e chama a função oneToSeven-}
+noRepeat attempt  
+	|attempt == nub attempt = oneToSeven attempt
+	|otherwise = False
 
-{-Verifica se a tentativa tem 4 digitos-}
+{-Verifica se a tentativa tem 4 digitos e chama a função noRepeat-}
 valid attempt  
-	| length attempt == 4 = True
+	| length attempt == 4 = noRepeat attempt
 	| otherwise = False
 
 {-Cria uma senha randomica de 4 digitos e sem repetição-}
