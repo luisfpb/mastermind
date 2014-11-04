@@ -1,3 +1,5 @@
+{-Para rodar use o metodo main-}
+
 module Main where
 
 import  Data.List      
