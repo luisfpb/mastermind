@@ -53,7 +53,7 @@ shuffle ans = shuffleAux ans [] 1
 attempts :: (Num i, Eq i, Show i) => i -> String -> IO ()
 attempts 0 _ = putStrLn "Game Over... You Lose!"
 attempts i psw = do
-	putStrLn $ "Entre com o seu palpite ("++ (show i) ++"): (Os digitos do seu palpite devem ser unicos e estar entre 1000 e 9876)"
+	putStrLn $ "Entre com o seu palpite ("++ (show i) ++"): (O palpite deve conter 4 digitos e eles devem ser unicos)"
 	attempt <- getLine
 	if valid attempt then
 		if isEqual attempt psw
